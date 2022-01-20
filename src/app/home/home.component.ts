@@ -7,6 +7,7 @@ import { CartComponent } from '../cart/cart.component';
 import { ContactComponent } from '../contact/contact.component';
 import { AboutComponent } from '../about/about.component';
 import { AddProductComponent } from '../product/add-product/add-product.component';
+import { WishlistComponent } from '../wishlist/wishlist.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -53,5 +54,8 @@ export class HomeComponent implements OnInit {
 
   about() {
     this.dialog.open(AboutComponent);
+  }
+  openWishlist() {
+    this.dialog.open(WishlistComponent);
   }
 }

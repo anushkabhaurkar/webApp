@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Product } from '../product';
 import { CommonService } from '../shared/common/common.service';
 
@@ -131,5 +132,6 @@ export class CartComponent implements OnInit {
       this.common.getList();
     }
     console.log('checkout list', checkoutList);
+    Swal.fire('', 'Order Placed Successfully', 'success');
   }
 }
