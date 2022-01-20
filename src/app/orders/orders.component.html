@@ -1,0 +1,48 @@
+<div *ngIf="orderList">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span style="color: #7fff00"><i>Pearl Creation</i></span>
+      <span class="example-spacer"></span>
+      &nbsp;
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div style="width: 100%">
+    <mat-card
+      style="
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(116, 116, 248);
+        flex-wrap: wrap;
+        justify-content: center;
+      "
+    >
+      <mat-card
+        *ngFor="let order of orderList"
+        align="center"
+        style="
+          margin: 10px;
+          width: 25%;
+          height: 550px;
+          background-color: whitesmoke;
+        "
+      >
+        <div>
+          <div style="width: 100%; height: auto">
+            <img src="data:image/JPEG;base64,{{ order.Image[0] }}" />
+          </div>
+
+          <h5>{{ order.Name }}</h5>
+
+          <h3 style="color: tomato">{{ order.Price | currency: "INR" }}</h3>
+          <div *ngIf="common.isAdminUser()">
+            <h5>{{ order.cartItem }}</h5>
+          </div>
+          <div *ngIf="!common.isAdminUser()">
+            <h5>{{ order.Description }}</h5>
+          </div>
+        </div>
+      </mat-card>
+    </mat-card>
+  </div>
+</div>

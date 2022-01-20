@@ -1,0 +1,27 @@
+<div *ngIf="items.length > 0; else loading">
+  <h3>Whislist</h3>
+
+  <table class="table-bordered" style="height: 50%; width: 50%">
+    <tr>
+      <th></th>
+      <th>PREVIEW</th>
+      <th>NAME</th>
+      <th>PRICE</th>
+
+      <th></th>
+    </tr>
+    <tr *ngFor="let item of items">
+      <td></td>
+      <div style="width: 100%; height: auto">
+        <img src="data:image/JPEG;base64,{{ item.Image[0] }}" />
+      </div>
+
+      <td *ngIf="item.isInWish">{{ item.Name }}</td>
+
+      <td *ngIf="item.isInWish">{{ item.Price | currency: "INR" }}</td>
+    </tr>
+  </table>
+</div>
+<ng-template #loading>
+  <p>No Data to Display..!</p>
+</ng-template>

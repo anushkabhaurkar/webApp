@@ -1,0 +1,185 @@
+<div *ngIf="productList">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span style="color: #7fff00"><i>Pearl Creation</i></span>
+      <span class="example-spacer"></span>
+      &nbsp;
+      <div *ngIf="common.isAdminUser()">
+        <button mat-icon-button (click)="orders()">Orders</button>
+      </div>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+        (click)="openWishlist()"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+        mat-button
+        (click)="openDialog()"
+      >
+        <span class="material-icons">shopping_cart</span>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div style="width: 100%">
+    <mat-form-field style="width: 30%; margin-left: 65%">
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. ium"
+        #input
+      />
+    </mat-form-field>
+    <mat-card
+      style="
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(116, 116, 248);
+        flex-wrap: wrap;
+        justify-content: center;
+      "
+    >
+      <mat-card
+        *ngFor="let product of productList"
+        align="center"
+        style="
+          margin: 10px;
+          width: 25%;
+          height: 450px;
+          background-color: whitesmoke;
+        "
+      >
+        <div>
+          <div style="width: 100%; height: auto">
+            <img src="data:image/JPEG;base64,{{ product.Image[0] }}" />
+          </div>
+          <a (click)="openModel(product)"
+            ><h5>{{ product.Name }}</h5>
+          </a>
+          <h3 style="color: tomato">{{ product.Price | currency: "INR" }}</h3>
+          <div *ngIf="common.isAdminUser()">
+            <h5>{{ product.Quantity }}</h5>
+          </div>
+          <div *ngIf="!common.isAdminUser()">
+            <h5>{{ product.Description }}</h5>
+          </div>
+          <button
+            *ngIf="!common.isAdminUser()"
+            mat-raised-button
+            class="button1"
+            (click)="addCart(product)"
+            btn-btn-primary
+            type="submit"
+            style="color: white"
+          >
+            Add to Cart
+          </button>
+          <button
+            *ngIf="!common.isAdminUser()"
+            mat-icon-button
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+            [style.color]="product.isWished"
+            (click)="wishlist(product)"
+          >
+            <mat-icon>favorite</mat-icon>
+          </button>
+
+          <button
+            *ngIf="common.isAdminUser()"
+            mat-raised-button
+            class="button1"
+            (click)="updateProduct(product)"
+            btn-btn-primary
+            type="submit"
+          >
+            <mat-icon style="color: white">edit</mat-icon>
+          </button>
+          &nbsp;
+          <button
+            *ngIf="common.isAdminUser()"
+            mat-raised-button
+            class="button1"
+            (click)="deleteProduct(product.id)"
+            btn-btn-primary
+            type="submit"
+          >
+            <mat-icon style="color: white">delete</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    </mat-card>
+    <!-- <table style="margin-left: 3%">
+      <tr style="height: 25%">
+        <td *ngFor="let product of productList">
+          <img
+            src="data:image/JPEG;base64,{{ product.Image[0] }}"
+            style="height: 30%; width: 100%"
+          />
+          <a (click)="openModel(product)"
+            ><h5>{{ product.Name }}</h5>
+          </a>
+
+          <h3 style="color: tomato">{{ product.Price | currency: "INR" }}</h3>
+          <div *ngIf="common.isAdminUser()">
+            <h5>{{ product.Quantity }}</h5>
+          </div>
+          <div *ngIf="!common.isAdminUser()">
+            <h5>{{ product.Description }}</h5>
+          </div>
+          <button
+            *ngIf="!common.isAdminUser()"
+            mat-raised-button
+            class="button1"
+            (click)="addCart(product)"
+            btn-btn-primary
+            type="submit"
+            style="color: white"
+          >
+            Add to Cart
+          </button>
+          <button
+            *ngIf="!common.isAdminUser()"
+            mat-icon-button
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+            [style.color]="product.isWished"
+            (click)="wishlist(product)"
+          >
+            <mat-icon>favorite</mat-icon>
+          </button>
+
+          <button
+            *ngIf="common.isAdminUser()"
+            mat-raised-button
+            class="button1"
+            (click)="updateProduct(product)"
+            btn-btn-primary
+            type="submit"
+          >
+            <mat-icon style="color: white">edit</mat-icon>
+          </button>
+          &nbsp;
+          <button
+            *ngIf="common.isAdminUser()"
+            mat-raised-button
+            class="button1"
+            (click)="deleteProduct(product.id)"
+            btn-btn-primary
+            type="submit"
+          >
+            <mat-icon style="color: white">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </table> -->
+  </div>
+</div>

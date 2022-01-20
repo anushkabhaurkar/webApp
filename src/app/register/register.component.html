@@ -1,0 +1,152 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src="../../assets/img-11.jpg" class="banner-img" alt="" />
+    </div>
+    <div class="col form">
+      <mat-card>
+        <form
+          class="inner-form"
+          [formGroup]="registerForm"
+          (ngSubmit)="registerUser()"
+        >
+          <h2>Sign In</h2>
+          <div class="row form-fields">
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="john smith"
+                formControlName="name"
+                required
+              />
+              <mat-error *ngIf="hasError('name', 'required')"
+                >Name is required</mat-error
+              >
+              <mat-error *ngIf="hasError('name', 'pattern')"
+                >Enter Valid Name</mat-error
+              >
+            </mat-form-field>
+            &nbsp;&nbsp;
+
+            <mat-form-field appearance="fill">
+              <mat-label>Email Id</mat-label>
+              <input
+                type="email"
+                matInput
+                placeholder="Ex. pat@example.com"
+                formControlName="email"
+                required
+              />
+              <mat-error *ngIf="hasError('email', 'required')"
+                >Email is required</mat-error
+              >
+              <mat-error *ngIf="hasError('email', 'pattern')"
+                >Enter Valid Email</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <div class="row form-fields">
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                matInput
+                placeholder="*******"
+                formControlName="passwordHash"
+                required
+              />
+              <mat-error *ngIf="hasError('passwordHash', 'required')"
+                >Password is required</mat-error
+              >
+              <mat-error *ngIf="hasError('passwordHash', 'pattern')"
+                >Enter Valid Password</mat-error
+              >
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field appearance="fill">
+              <mat-label>Phone</mat-label>
+              <input
+                type="number"
+                matInput
+                placeholder="+91 8888888888"
+                formControlName="phone"
+                required
+              />
+              <mat-error *ngIf="hasError('phone', 'required')"
+                >Phone is required</mat-error
+              >
+              <mat-error *ngIf="hasError('phone', 'pattern')"
+                >Enter Valid Phone</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <div class="row form-fields">
+            <mat-form-field appearance="fill">
+              <mat-label>Street</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="sector A"
+                formControlName="street"
+              />
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field appearance="fill">
+              <mat-label>Apartment</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="blossom"
+                formControlName="apartment"
+              />
+            </mat-form-field>
+          </div>
+          <div class="row form-fields">
+            <mat-form-field appearance="fill">
+              <mat-label>Pincode</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="666666"
+                formControlName="zip"
+              />
+            </mat-form-field>
+            &nbsp;&nbsp;
+            <mat-form-field appearance="fill">
+              <mat-label>City</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="New york"
+                formControlName="city"
+              />
+            </mat-form-field>
+          </div>
+          <div class="row form-fields">
+            <mat-form-field appearance="fill">
+              <mat-label>Country</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="USA"
+                formControlName="country"
+              />
+            </mat-form-field>
+          </div>
+          <div class="row form-fields">
+            <button mat-raised-button color="primary" type="submit">
+              Sign In
+            </button>
+          </div>
+          <div class="row form-fields">
+            <a routerLink="/" routerLinkActive="active"
+              >Already have account? Login</a
+            >
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

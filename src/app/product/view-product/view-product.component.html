@@ -1,0 +1,15 @@
+<h3>Product View</h3>
+<br />
+<br />
+<h2>
+  <b> {{ data.Name }}</b>
+</h2>
+<br />
+
+<ng-image-slider [images]="imageArray" #nav></ng-image-slider>
+<br />
+
+<h3 style="color: tomato">{{ data.Price | currency: "INR" }}</h3>
+<br />
+
+<h5>{{ data.Description }}</h5>

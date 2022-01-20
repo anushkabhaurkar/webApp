@@ -1,0 +1,18 @@
+.serviceBox {
+  padding: 2%;
+  width: 100%;
+  margin: auto;
+  height: fit-content;
+}
+.serviceBox1 {
+  float: left;
+  width: 25%;
+}
+.button1 {
+  background-color: rgb(22, 97, 235);
+  align-self: flex-start;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

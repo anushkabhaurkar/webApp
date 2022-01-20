@@ -1,0 +1,22 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.slick-slider {
+  width: 24%;
+  margin: auto;
+}
+
+body .slick-prev,
+body .slick-next {
+  height: 25px;
+  width: 20px;
+  background: #575d59 !important;
+  z-index: 100;
+}

@@ -1,0 +1,102 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <!-- <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        mat-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button> -->
+    <span style="color: chartreuse"><i>Pearl Creation</i></span>
+    <span class="example-spacer"></span>
+    &nbsp;
+    <div *ngIf="!common.isAdminUser()">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+        type="submit"
+        (click)="about()"
+      >
+        About
+      </button>
+    </div>
+    &nbsp;&nbsp;
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      type="submit"
+      (click)="product()"
+    >
+      Products
+    </button>
+    &nbsp;&nbsp; &nbsp;&nbsp;
+
+    <div *ngIf="common.isAdminUser()">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+        type="submit"
+        (click)="addProduct()"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    &nbsp;&nbsp;&nbsp;
+    <div *ngIf="!common.isAdminUser()">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+        type="submit"
+        (click)="call()"
+      >
+        <mat-icon>call</mat-icon>
+      </button>
+
+      &nbsp;&nbsp;
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+        mat-button
+        (click)="openDialog()"
+      >
+        <span class="material-icons">shopping_cart</span>
+      </button>
+    </div>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      type="submit"
+      (click)="logout()"
+    >
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <!-- <mat-drawer #drawer class="example-sidenav" mode="side">
+        <mat-selection-list #menu [multiple]="false">
+          <mat-list-option *ngFor="let menu of types" [value]="menu">
+            {{ menu }}
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-drawer> -->
+  <mat-card-content>
+    <img class="BackImg" src="../../assets/final-1.jpg" alt="image" />
+  </mat-card-content>
+</mat-drawer-container>

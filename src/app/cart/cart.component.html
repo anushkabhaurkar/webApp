@@ -1,0 +1,67 @@
+<div *ngIf="items.length > 0; else loading">
+  <h3>ORDER SUMMARY</h3>
+  <div style="height: 100%; width: 100%">
+    <mat-card>
+      <table>
+        <tr>
+          <th></th>
+          <th>PREVIEW</th>
+          <th>NAME</th>
+          <th>PRICE</th>
+          <th>Quantity</th>
+          <th>Remove</th>
+        </tr>
+
+        <tr *ngFor="let item of items">
+          <td></td>
+          <td>
+            <img
+              src="data:image/JPEG;base64,{{ item.Image[0] }}"
+              style="height: 150px; width: 150px"
+              *ngIf="item.cartItem != 0"
+            />
+          </td>
+          <td *ngIf="item.cartItem != 0">{{ item.Name }}</td>
+          <td *ngIf="item.cartItem != 0">{{ item.Price | currency: "INR" }}</td>
+          <td *ngIf="item.cartItem != 0">
+            <mat-icon (click)="add(item)">&nbsp;&nbsp;add</mat-icon
+            >&nbsp;&nbsp;&nbsp;
+            {{ item.cartItem }}
+            <mat-icon (click)="remove(item)">&nbsp;&nbsp;remove</mat-icon>
+          </td>
+          <td *ngIf="item.cartItem != 0">
+            <mat-icon (click)="delet(item)"
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete</mat-icon
+            >
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>Total</b></td>
+          <td></td>
+          <td>{{ totalPrice | currency: "INR" }}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <button
+            class="button1"
+            mat-button
+            btn-btn-primary
+            (click)="checkout()"
+          >
+            Checkout
+          </button>
+        </tr>
+      </table>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>No Data to display...!!!</p>
+</ng-template>

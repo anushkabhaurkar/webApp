@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src="../../assets/img-11.jpg" class="banner-img" alt="" />
+    </div>
+    <div class="col form">
+      <mat-card>
+        <form
+          class="inner-form"
+          [formGroup]="loginFormGroup"
+          (ngSubmit)="login()"
+        >
+          <h2>Log In</h2>
+          <div class="row form-fields">
+            <mat-form-field class="example-full-width mb-3" appearance="fill">
+              <mat-label>Email Id</mat-label>
+              <input
+                type="email"
+                matInput
+                placeholder="Ex. pat@example.com"
+                formControlName="email"
+                required
+              />
+              <mat-error *ngIf="hasError('email', 'required')"
+                >Email is required</mat-error
+              >
+              <mat-error *ngIf="hasError('email', 'pattern')"
+                >Enter Valid Email</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <div class="row form-fields">
+            <mat-form-field class="example-full-width mb-3" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                matInput
+                placeholder="*******"
+                formControlName="password"
+                required
+              />
+              <mat-error *ngIf="hasError('password', 'required')"
+                >Password is required</mat-error
+              >
+              <mat-error *ngIf="hasError('password', 'pattern')"
+                >Enter Valid Password</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <div class="row form-fields">
+            <button mat-raised-button color="primary" type="submit">
+              Login
+            </button>
+          </div>
+          <div class="row form-fields">
+            <a routerLink="/register" routerLinkActive="active"
+              >Don't have account? Register</a
+            >
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
